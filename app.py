@@ -7,6 +7,7 @@
 from jupyter_dash import JupyterDash
 import os
 import dash
+import dash_auth
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
@@ -142,7 +143,16 @@ dropdown_options = [{"label":i, "value": i} for i in all_names]
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+VALID_USERNAME_PASSWORD_PAIRS = {
+    'hello': 'world'
+}
+
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+auth = dash_auth.BasicAuth(
+    app,
+    VALID_USERNAME_PASSWORD_PAIRS
+)
 
 server = app.server
 
