@@ -21,12 +21,12 @@ import dash_table
 
 # In[2]:
 
-cluster_centres = pd.read_csv('../cluster-centres.csv', index_col=0).transpose().reset_index()
+cluster_centres = pd.read_csv('cluster-centres.csv', index_col=0).transpose().reset_index()
 cluster_centres.index = cluster_centres['index'] + ' (' + cluster_centres.index.astype(str) + ')'
 cluster_centres = cluster_centres.drop(columns=['index'])
 cluster_labels = cluster_centres.index
 
-cluster_centres_display = pd.read_csv('../cluster-centres.csv', index_col=0)
+cluster_centres_display = pd.read_csv('cluster-centres.csv', index_col=0)
 cluster_centres_display.index = '% ' + cluster_centres_display.index
 cluster_centres_display.index.name = ""
 cluster_centres_display.reset_index(inplace=True)
