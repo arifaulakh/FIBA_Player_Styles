@@ -36,7 +36,7 @@ s = s.round(2)
 cluster_centres_display[s.columns] = s
 
 df = pd.read_csv("NBA_INTL_FIBA_Clustering.csv", encoding='latin-1', index_col=0)
-all_names = ['League Average'] + df.index.tolist()
+all_names = ['League Average'] + df.index.tolist() + cluster_centres.index.tolist()
 
 dfs = [df[[c for c in df.columns if c.startswith(name)]].dropna() for name in ['FIBA', 'NBA', 'INTL']]
 # Split up into separate dataframes
