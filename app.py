@@ -243,7 +243,7 @@ app.layout = html.Div([
     html.P("Below is a graph of the average play type distributions for each cluster. You can show/hide certain clusters by clicking on them in the legend. Hover over a point to print the proportion."),
     dcc.Graph(id='play_type_dist_by_cluster', figure=cluster_fig, config={'scrollZoom': True, "toImageButtonOptions": {"width": None, "height": None}}), 
     html.P("Below is a table of the cluster centres."),
-    dash_table.DataTable(id='cluster_centres', columns=[{"name": i, "id": i} for i in cluster_centres_display.columns], data=cluster_centres_display.to_dict('records'), style_header={'fontWeight': 'bold'}),
+    dash_table.DataTable(id='cluster_centres', columns=[{"name": i, "id": i} for i in cluster_centres_display.columns], data=cluster_centres_display.to_dict('records'), style_header={'fontWeight': 'bold'}, export_format="csv"),
     html.H2("Player Stats"),
     html.P("Select players from the dropdown to show their play type distributions in each league, or show a cluster centre by searching for the cluster number or name. Selecting 'League Average' shows the mean play type distribution for all players in that competition."),
     html.P("Click on a player in the legend to hide/show their stats. Zoom in by clicking and dragging, and reset the zoom by double-clicking."),
