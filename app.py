@@ -187,7 +187,10 @@ dropdown_options = [{"label":i, "value": i} for i in all_names]
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 VALID_USERNAME_PASSWORD_PAIRS = {
-    'hello': 'world'
+    'phil': 'CBxUTSPAN2021',
+    'arif': 'CBxUTSPAN2021',
+    'ethan': 'CBxUTSPAN2021',
+    'jamal': 'CBxUTSPAN2021',
 }
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
