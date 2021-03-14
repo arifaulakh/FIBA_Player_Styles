@@ -22,12 +22,12 @@ colours = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e
 
 # In[2]:
 
-cluster_centres = pd.read_csv('cluster-centres.csv', index_col=0).transpose().reset_index()
+cluster_centres = pd.read_csv('Clustering/cluster-centres.csv', index_col=0).transpose().reset_index()
 cluster_centres.index = cluster_centres['index'] + ' (' + cluster_centres.index.astype(str) + ')'
 cluster_centres = cluster_centres.drop(columns=['index'])
 cluster_labels = cluster_centres.index
 
-cluster_centres_display = pd.read_csv('cluster-centres.csv', index_col=0)
+cluster_centres_display = pd.read_csv('Clustering/cluster-centres.csv', index_col=0)
 cluster_centres_display.index = '% ' + cluster_centres_display.index
 cluster_centres_display.index.name = ""
 cluster_centres_display.reset_index(inplace=True)
@@ -35,7 +35,7 @@ s = cluster_centres_display.select_dtypes(include=[np.number])*100
 s = s.round(2)
 cluster_centres_display[s.columns] = s
 
-df = pd.read_csv("NBA_INTL_FIBA_Clustering.csv", encoding='latin-1', index_col=0)
+df = pd.read_csv("Clustering/NBA_INTL_FIBA_Clustering_Encoded.csv", encoding='latin-1', index_col=0)
 all_names = ['League Average'] + df.index.tolist() + cluster_centres.index.tolist()
 
 dfs = [df[[c for c in df.columns if c.startswith(name)]].dropna() for name in ['FIBA', 'NBA', 'INTL']]
