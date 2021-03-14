@@ -249,7 +249,7 @@ app.layout = html.Div([
     dash_table.DataTable(id='cluster_centres', columns=[{"name": i, "id": i} for i in cluster_centres_display.columns], data=cluster_centres_display.to_dict('records'), style_header={'fontWeight': 'bold'}, export_format="csv"),
     html.H2("Player Stats"),
     html.P("Select players from the dropdown to show their play type distributions in each league, or show a cluster centre by searching for the cluster number or name. Selecting 'League Average' shows the mean play type distribution for all players in that competition."),
-    html.P("Click on a player in the legend to hide/show their stats. Zoom in by clicking and dragging, and reset the zoom by double-clicking."),
+    html.P("Click on a player in the legend to hide/show their stats. Zoom in by clicking and dragging, and reset the zoom by double-clicking. Players with fewer than 50 total plays were removed."),
     dcc.Dropdown(id="selected_players", options=dropdown_options, value="League Average", multi=True, placeholder="Search for a player or 'League Average'",),
     dcc.Graph(id='play_type_dist_by_player', config={'scrollZoom': True, "toImageButtonOptions": {"width": None, "height": None}}),
     # TODO scrollZoom not working right now
